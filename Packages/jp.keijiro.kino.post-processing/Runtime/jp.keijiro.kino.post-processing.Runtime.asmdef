@@ -1,0 +1,10 @@
+{
+    "name": "jp.keijiro.kino.post-processing.Runtime",
+    "references": [
+        "Unity.Postprocessing.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
