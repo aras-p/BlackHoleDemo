@@ -152,9 +152,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1598398914589518, guid: a30d3a421a3c6004f92217ef15481469, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a30d3a421a3c6004f92217ef15481469, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &111963198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1598398914589518, guid: a30d3a421a3c6004f92217ef15481469,
+    type: 2}
+  m_PrefabInternal: {fileID: 111963197}
 --- !u!1 &646143770
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +230,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &646257730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 646257732}
+  - component: {fileID: 646257731}
+  - component: {fileID: 646257733}
+  m_Layer: 0
+  m_Name: LatticeTerrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &646257731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646257730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707f38db09f5c4f19bb312c9b6160423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _columns: 100
+  _rows: 100
+  _extent: {x: 50, y: 50}
+  _offset: {x: 0, y: 0}
+  _noiseFrequency: 0.3
+  _noiseDepth: 3
+  _noiseClampMin: -1
+  _noiseClampMax: 1
+  _noiseElevation: 1
+  _noiseWarp: 0
+  _noiseOffset: {x: 0, y: 0}
+  _material: {fileID: 2100000, guid: dcaf52fb750a9e947baa62b460307b8e, type: 2}
+  _castShadows: 0
+  _receiveShadows: 0
+  _lineColor: {r: 0, g: 0, b: 0, a: 0.4}
+  _dissolve: 1
+  _debug: 0
+  _kernelShader: {fileID: 4800000, guid: cc0a7661a4d054189b5c00584b5c766a, type: 3}
+  _lineShader: {fileID: 4800000, guid: a85ea180ea86a4e4880dd86148362ee6, type: 3}
+  _debugShader: {fileID: 4800000, guid: 4edd56662daef4fb28603282229909d6, type: 3}
+--- !u!4 &646257732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646257730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 17.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &646257733
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646257730}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!198 &702635355 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198263337476016174, guid: 4048333681bcfd6428634deb3111caaf,
@@ -503,6 +591,12 @@ PlayableDirector:
     value: {fileID: 1675338810}
   - key: {fileID: 114990111493732562, guid: c759a92c96c650144951f074caadad67, type: 2}
     value: {fileID: 1715521738}
+  - key: {fileID: 114671745962897612, guid: c759a92c96c650144951f074caadad67, type: 2}
+    value: {fileID: 646257730}
+  - key: {fileID: 114053564879893182, guid: c759a92c96c650144951f074caadad67, type: 2}
+    value: {fileID: 111963198}
+  - key: {fileID: 114905204773695480, guid: c759a92c96c650144951f074caadad67, type: 2}
+    value: {fileID: 646257733}
   m_ExposedReferences:
     m_References:
     - 693d019254531f8449e9597e4d830fc3: {fileID: 646143771}
