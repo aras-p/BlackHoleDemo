@@ -47,12 +47,12 @@ half4 Frag(VaryingsDefault i, float4 fragCoord : SV_Position) : SV_Target
         res.rgb = res.ggg;
 
     // discolor block lines
-    if (random(float2(uv_noise.y+31,0)) * 3.5 < line_thresh * _Params.z)
+    if (random(float2(uv_noise.y+31,0)) < line_thresh * 0.1 * _Params.z)
         res.rgb = float3(0.0, dot(res.rgb, float3(1,1,1)), 0.0);
 
     // interleave lines in some blocks
-    if (random(uv_noise+51) * 1.5 < block_thresh * _Params.w ||
-        random(float2(1-uv_noise.y,7)) * 2.5 < line_thresh * _Params.w)
+    if (random(uv_noise+51) < block_thresh * 0.01 * _Params.w ||
+        random(float2(1-uv_noise.y,7)) < line_thresh * 0.01 * _Params.w)
     {
         float lin = frac(fragCoord.y / 3.0);
         float3 mask = float3(3.0, 0.0, 0.0);
