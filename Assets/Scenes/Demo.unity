@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -334,7 +334,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2b17a803f6c40e646b4dbfa23c8d0ff4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5848749
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2b17a803f6c40e646b4dbfa23c8d0ff4, type: 3}
       propertyPath: m_RootOrder
@@ -534,7 +534,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: dbc4a334f2d6ecd4c8e5051c09525f06, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.52789086
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: dbc4a334f2d6ecd4c8e5051c09525f06, type: 3}
       propertyPath: m_RootOrder
@@ -772,8 +772,8 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 0.1
-    FarClipPlane: 5000
+    NearClipPlane: 0.2
+    FarClipPlane: 120
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -1007,7 +1007,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: bcedf6cbf833e7e4e866c9a396aff01c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.65152216
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: bcedf6cbf833e7e4e866c9a396aff01c, type: 3}
       propertyPath: m_RootOrder
@@ -1075,7 +1075,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: c3ddc5eba48dc4c4796fd4de5f6705a5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.876738
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: c3ddc5eba48dc4c4796fd4de5f6705a5, type: 3}
       propertyPath: m_RootOrder
@@ -1410,7 +1410,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 353f087c270ccad4f80ad5b087541271, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.17379262
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 353f087c270ccad4f80ad5b087541271, type: 3}
       propertyPath: m_RootOrder
@@ -1517,8 +1517,8 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 0.1
-    FarClipPlane: 5000
+    NearClipPlane: 0.2
+    FarClipPlane: 120
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -1575,7 +1575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _columns: 100
   _rows: 100
-  _extent: {x: 50, y: 50}
+  _extent: {x: 55, y: 55}
   _offset: {x: 0, y: 0}
   _noiseFrequency: 0.3
   _noiseDepth: 3
@@ -2057,7 +2057,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 8ee96a5a5c9217546bb01e2754068791, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3013811
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 8ee96a5a5c9217546bb01e2754068791, type: 3}
       propertyPath: m_RootOrder
@@ -2360,7 +2360,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 3ff4d3dd62ce42b4e9459cc1b1fe50b4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.50838834
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 3ff4d3dd62ce42b4e9459cc1b1fe50b4, type: 3}
       propertyPath: m_RootOrder
@@ -2506,7 +2506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1026244003
 Transform:
   m_ObjectHideFlags: 0
@@ -2948,6 +2948,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4902328827063030, guid: dbe7e10a399e696428ff5688dcc7e80e,
     type: 2}
   m_PrefabInternal: {fileID: 1253182207}
+--- !u!1 &1253182209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1479712727952732, guid: dbe7e10a399e696428ff5688dcc7e80e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1253182207}
 --- !u!1001 &1256359839
 Prefab:
   m_ObjectHideFlags: 0
@@ -2981,7 +2986,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d6888f9a51be9f94dab4404c42086597, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.19393992
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d6888f9a51be9f94dab4404c42086597, type: 3}
       propertyPath: m_RootOrder
@@ -3662,7 +3667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1536191661
 Light:
   m_ObjectHideFlags: 0
@@ -3818,7 +3823,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1f87590857635184aa398983559f078d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.19249228
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1f87590857635184aa398983559f078d, type: 3}
       propertyPath: m_RootOrder
@@ -3887,7 +3892,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -3898,8 +3903,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
-  far clip plane: 5000
+  near clip plane: 0.2
+  far clip plane: 120
   field of view: 40
   orthographic: 0
   orthographic size: 5
@@ -3924,7 +3929,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1675338802}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.7182597, y: 1.650503, z: -7.4652715}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4029,9 +4034,18 @@ PlayableDirector:
     value: {fileID: 1898492630}
   - key: {fileID: 114734020513684174, guid: c759a92c96c650144951f074caadad67, type: 2}
     value: {fileID: 2143572108}
+  - key: {fileID: 114182445479289092, guid: c759a92c96c650144951f074caadad67, type: 2}
+    value: {fileID: 1899870171}
+  - key: {fileID: 114315468451400546, guid: c759a92c96c650144951f074caadad67, type: 2}
+    value: {fileID: 1898492633}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - a3e87a9bd908bdd4f9b9db55a47a3715: {fileID: 267547562}
+    - 09147489be0463e4fb472c168ebaefe5: {fileID: 1253182209}
     - 0ba18c284693a7b49af710953d5f96dc: {fileID: 2130573402}
     - 693d019254531f8449e9597e4d830fc3: {fileID: 646143771}
     - 098b7951d03c54c4fb1c5fb027c68cc3: {fileID: 1899870170}
@@ -4532,6 +4546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1898492631}
   - component: {fileID: 1898492632}
+  - component: {fileID: 1898492633}
   m_Layer: 0
   m_Name: Directional Light2
   m_TagString: Untagged
@@ -4545,13 +4560,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1898492630}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.9773457, y: 13.714947, z: -7.637718}
   m_LocalScale: {x: 1, y: 1.0000001, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 434791432}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1898492632
 Light:
   m_ObjectHideFlags: 0
@@ -4589,6 +4604,24 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!95 &1898492633
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1898492630}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1899870168
 GameObject:
   m_ObjectHideFlags: 0
@@ -4598,6 +4631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1899870169}
   - component: {fileID: 1899870170}
+  - component: {fileID: 1899870171}
   m_Layer: 0
   m_Name: CM vcam4
   m_TagString: Untagged
@@ -4611,14 +4645,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1899870168}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.7182597, y: 19.53, z: -7.4652715}
+  m_LocalRotation: {x: -0.4996117, y: 0.16552566, z: 0.09351109, w: 0.8451302}
+  m_LocalPosition: {x: -0.72060156, y: -1.327229, z: 6.4402976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1522330470}
   m_Father: {fileID: 2109084026}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1899870170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4639,10 +4673,10 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 10
+    FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 20
-    FarClipPlane: 50
+    NearClipPlane: 0.2
+    FarClipPlane: 121
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -4655,6 +4689,24 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1522330470}
+--- !u!95 &1899870171
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1899870168}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1934040059
 GameObject:
   m_ObjectHideFlags: 0
@@ -5057,8 +5109,8 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 0.1
-    FarClipPlane: 5000
+    NearClipPlane: 0.2
+    FarClipPlane: 120
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -5092,8 +5144,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143572108}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.83, y: -3.76, z: -7.53}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.71, y: 1.59, z: 5.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1253182208}
@@ -5133,4 +5185,4 @@ Transform:
   - {fileID: 1496633299}
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
