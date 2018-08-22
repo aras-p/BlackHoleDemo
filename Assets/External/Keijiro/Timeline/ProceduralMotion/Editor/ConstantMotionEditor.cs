@@ -12,11 +12,15 @@ namespace Klak.Timeline
     {
         SerializedProperty _position;
         SerializedProperty _rotation;
+        SerializedProperty _positionDelta;
+        SerializedProperty _rotationDelta;
 
         void OnEnable()
         {
             _position = serializedObject.FindProperty("template.position");
             _rotation = serializedObject.FindProperty("template.rotation");
+            _positionDelta = serializedObject.FindProperty("template.positionDelta");
+            _rotationDelta = serializedObject.FindProperty("template.rotationDelta");
         }
 
         public override void OnInspectorGUI()
@@ -25,6 +29,8 @@ namespace Klak.Timeline
 
             EditorGUILayout.PropertyField(_position);
             EditorGUILayout.PropertyField(_rotation);
+            EditorGUILayout.PropertyField(_positionDelta);
+            EditorGUILayout.PropertyField(_rotationDelta);
 
             serializedObject.ApplyModifiedProperties();
         }

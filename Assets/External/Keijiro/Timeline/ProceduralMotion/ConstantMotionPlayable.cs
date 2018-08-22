@@ -13,6 +13,8 @@ namespace Klak.Timeline
 
         public Vector3 position = Vector3.zero;
         public Vector3 rotation = Vector3.zero;
+        public Vector3 positionDelta = Vector3.zero;
+        public Vector3 rotationDelta = Vector3.zero;
 
         #endregion
 
@@ -23,8 +25,9 @@ namespace Klak.Timeline
             var target = playerData as Transform;
             if (target != null)
             {
-                target.localPosition += position * info.weight;
-                target.localRotation = Quaternion.Slerp(target.localRotation, Quaternion.Euler(rotation), info.weight);
+                var t = (float)playable.GetTime();
+                target.localPosition += (position + positionDelta * t) * info.weight;
+                target.localRotation = Quaternion.Slerp(target.localRotation, Quaternion.Euler(rotation + rotationDelta * t), info.weight);
             }
         } 
 
