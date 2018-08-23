@@ -11,6 +11,7 @@ namespace Kino.PostProcessing
         [Range(0, 1)] public FloatParameter stretch = new FloatParameter { value = 0.75f };
         [Range(0, 1)] public FloatParameter intensity = new FloatParameter { value = 0 };
         [ColorUsage(false)] public ColorParameter tint = new ColorParameter { value = new Color(0.55f, 0.55f, 1) };
+        [Range(0, 3)] public IntParameter blend = new IntParameter { value = 0 };
     }
 
     public sealed class StreakRenderer : PostProcessEffectRenderer<Streak>
@@ -49,6 +50,7 @@ namespace Kino.PostProcessing
             sheet.properties.SetFloat("_Stretch", settings.stretch);
             sheet.properties.SetFloat("_Intensity", settings.intensity);
             sheet.properties.SetColor("_Color", settings.tint);
+            sheet.properties.SetInt("_Mode", settings.blend);
 
             // Calculate the mip widths.
             _mipWidth[0] = context.screenWidth;
