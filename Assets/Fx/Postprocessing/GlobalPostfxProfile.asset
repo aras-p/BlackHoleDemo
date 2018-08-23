@@ -14,127 +14,7 @@ MonoBehaviour:
   settings:
   - {fileID: 114867822689812178}
   - {fileID: 114706136691171712}
-  - {fileID: 114854388444464692}
-  - {fileID: 114448949872564158}
-  - {fileID: 114353595818325360}
   - {fileID: 114492237271616032}
-  - {fileID: 114776878888936264}
-  - {fileID: 114781008551982428}
---- !u!114 &114353595818325360
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9746f408d6f1e994fa5e88f4f770670f, type: 3}
-  m_Name: Recolor
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  edgeColor:
-    overrideState: 0
-    value: {r: 1, g: 0.5424528, b: 0.5424528, a: 1}
-  edgeSource:
-    overrideState: 1
-    value: 1
-  edgeThreshold:
-    overrideState: 1
-    value: 0.71
-  edgeContrast:
-    overrideState: 1
-    value: 0.72
-  fillGradient:
-    overrideState: 1
-    value:
-      serializedVersion: 2
-      key0: {r: 0, g: 0, b: 1, a: 1}
-      key1: {r: 1, g: 0, b: 0, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-  fillOpacity:
-    overrideState: 1
-    value: 0.48
---- !u!114 &114448949872564158
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94488653724e0384d94b7a5e7bc68a14, type: 3}
-  m_Name: Isoline
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  baseAxis:
-    overrideState: 1
-    value: {x: 0, y: 1, z: 0}
-  lineInterval:
-    overrideState: 1
-    value: 0.1
-  lineOffset:
-    overrideState: 0
-    value: 0
-  lineScroll:
-    overrideState: 0
-    value: 0.2
-  lineColor:
-    overrideState: 1
-    value: {r: 1.5, g: 0.2, b: 0.2, a: 1}
-  lineWidth:
-    overrideState: 1
-    value: 1.5
-  sourceContribution:
-    overrideState: 1
-    value: 0
-  backgroundColor:
-    overrideState: 0
-    value: {r: 0, g: 0, b: 0, a: 0}
-  modulationStrength:
-    overrideState: 0
-    value: 0
-  modulationFrequency:
-    overrideState: 0
-    value: 0.1
-  modulationWidth:
-    overrideState: 0
-    value: 0.1
-  modulationOffset:
-    overrideState: 0
-    value: 0
-  modulationScroll:
-    overrideState: 0
-    value: 1
 --- !u!114 &114492237271616032
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -146,22 +26,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68966c50a26529148a161de977c30b30, type: 3}
   m_Name: Streak
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   threshold:
     overrideState: 1
-    value: 0.67
+    value: 0.78
   stretch:
     overrideState: 1
-    value: 0.75
+    value: 0.874
   intensity:
     overrideState: 1
     value: 1
   tint:
     overrideState: 1
-    value: {r: 1, g: 0.54901963, b: 0.9947409, a: 1}
+    value: {r: 1, g: 1, b: 1, a: 1}
+  blend:
+    overrideState: 1
+    value: 1
 --- !u!114 &114706136691171712
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -205,131 +88,6 @@ MonoBehaviour:
   opacity:
     overrideState: 0
     value: 1
---- !u!114 &114776878888936264
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9ba51565624d441a5a5234bb0e6647, type: 3}
-  m_Name: Overlay
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  gradient:
-    overrideState: 1
-    value:
-      serializedVersion: 2
-      key0: {r: 0, g: 0, b: 1, a: 1}
-      key1: {r: 1, g: 0, b: 0, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-  opacity:
-    overrideState: 1
-    value: 0.1
-  angle:
-    overrideState: 0
-    value: 0
---- !u!114 &114781008551982428
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059b30a01146e41a7b451c322c8c5817, type: 3}
-  m_Name: Glitch
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  intensity:
-    overrideState: 1
-    value: 0.01
-  glitching:
-    overrideState: 1
-    value: 0.01
-  discolor:
-    overrideState: 1
-    value: 0
-  interleave:
-    overrideState: 1
-    value: 0
---- !u!114 &114854388444464692
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
-  m_Name: Bloom
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  intensity:
-    overrideState: 1
-    value: 0.7
-  threshold:
-    overrideState: 1
-    value: 0.9
-  softKnee:
-    overrideState: 1
-    value: 0.5
-  clamp:
-    overrideState: 0
-    value: 65472
-  diffusion:
-    overrideState: 0
-    value: 7
-  anamorphicRatio:
-    overrideState: 0
-    value: 0
-  color:
-    overrideState: 1
-    value: {r: 0.6273585, g: 0.9301159, b: 1, a: 1}
-  fastMode:
-    overrideState: 0
-    value: 0
-  dirtTexture:
-    overrideState: 0
-    value: {fileID: 0}
-    defaultState: 1
-  dirtIntensity:
-    overrideState: 0
-    value: 0
 --- !u!114 &114867822689812178
 MonoBehaviour:
   m_ObjectHideFlags: 3
