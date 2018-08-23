@@ -1,0 +1,200 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
+  m_Name: CM Terrain Profile
+  m_EditorClassIdentifier: 
+  settings:
+  - {fileID: 114669864811554128}
+  - {fileID: 114035861033127070}
+  - {fileID: 114377850811406212}
+  - {fileID: 114794485138486630}
+--- !u!114 &114035861033127070
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94488653724e0384d94b7a5e7bc68a14, type: 3}
+  m_Name: Isoline
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  baseAxis:
+    overrideState: 1
+    value: {x: 0.4, y: 1, z: 0}
+  lineInterval:
+    overrideState: 1
+    value: 0.3
+  lineOffset:
+    overrideState: 0
+    value: 0
+  lineScroll:
+    overrideState: 0
+    value: 1
+  lineColor:
+    overrideState: 1
+    value: {r: 1.4980392, g: 1.4980392, b: 1.4980392, a: 1}
+  lineWidth:
+    overrideState: 1
+    value: 1.5
+  sourceContribution:
+    overrideState: 0
+    value: 1
+  backgroundColor:
+    overrideState: 0
+    value: {r: 0, g: 0, b: 0, a: 0}
+  modulationStrength:
+    overrideState: 0
+    value: 0
+  modulationFrequency:
+    overrideState: 0
+    value: 0.1
+  modulationWidth:
+    overrideState: 0
+    value: 0.1
+  modulationOffset:
+    overrideState: 0
+    value: 0
+  modulationScroll:
+    overrideState: 0
+    value: 1
+--- !u!114 &114377850811406212
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc9ba51565624d441a5a5234bb0e6647, type: 3}
+  m_Name: Overlay
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  gradient:
+    overrideState: 1
+    value:
+      serializedVersion: 2
+      key0: {r: 0, g: 0, b: 1, a: 1}
+      key1: {r: 1, g: 0, b: 0, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+  opacity:
+    overrideState: 1
+    value: 0.05
+  angle:
+    overrideState: 0
+    value: 0
+--- !u!114 &114669864811554128
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68966c50a26529148a161de977c30b30, type: 3}
+  m_Name: Streak
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 0
+  threshold:
+    overrideState: 0
+    value: 1
+  stretch:
+    overrideState: 0
+    value: 0.75
+  intensity:
+    overrideState: 0
+    value: 0
+  tint:
+    overrideState: 0
+    value: {r: 0.55, g: 0.55, b: 1, a: 1}
+  blend:
+    overrideState: 0
+    value: 0
+--- !u!114 &114794485138486630
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 21.5
+  threshold:
+    overrideState: 1
+    value: 1.8
+  softKnee:
+    overrideState: 0
+    value: 0.5
+  clamp:
+    overrideState: 0
+    value: 65472
+  diffusion:
+    overrideState: 0
+    value: 7
+  anamorphicRatio:
+    overrideState: 0
+    value: 0
+  color:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+  fastMode:
+    overrideState: 0
+    value: 0
+  dirtTexture:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  dirtIntensity:
+    overrideState: 0
+    value: 0
