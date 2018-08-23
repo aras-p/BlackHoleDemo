@@ -15,6 +15,7 @@ MonoBehaviour:
   - {fileID: 114483467497116834}
   - {fileID: 114397719428024336}
   - {fileID: 114987495129758832}
+  - {fileID: 114838079147832944}
 --- !u!114 &114397719428024336
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -77,6 +78,33 @@ MonoBehaviour:
     value: {r: 0.55, g: 0.55, b: 1, a: 1}
   blend:
     overrideState: 0
+    value: 0
+--- !u!114 &114838079147832944
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 059b30a01146e41a7b451c322c8c5817, type: 3}
+  m_Name: Glitch
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 0.2
+  glitching:
+    overrideState: 1
+    value: 0.1
+  discolor:
+    overrideState: 1
+    value: 0.02
+  interleave:
+    overrideState: 1
     value: 0
 --- !u!114 &114987495129758832
 MonoBehaviour:
