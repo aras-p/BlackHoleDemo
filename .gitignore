@@ -5,3 +5,4 @@ Logs/*
 *.sln
 .vs/
 obj/
+.idea/*
