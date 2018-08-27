@@ -42,6 +42,7 @@ CGPROGRAM
 float4 _KaliParam;
 float4 _KaliParam2;
 float4x4 _RaymarchTransform;
+float4x4 _RaymarchInverseTransform;
 float _GlobalAudioSpectrumLevel[10];
 float _GlobalAudioSpectrumPeak[10];
 float _GlobalAudioSpectrumMean[10];
@@ -51,14 +52,10 @@ float4 _TimelineTime;
 
 float kali(float3 pos)
 {
-    float3 opos = float3(_RaymarchTransform[0].w, _RaymarchTransform[1].w, _RaymarchTransform[2].w);
-    pos -= opos;
-    pos = mul(pos, (float3x3)_RaymarchTransform);
-
 	float len = length(pos);
 	if (len > 7)
-		return len * 10;
-
+		return len;
+		
 	float4 p = float4(pos,1);
 	float4 param = _KaliParam;
     half sa1 = smoothstep(_SoundMin, _SoundMax, _GlobalAudioSpectrumLevel[1]);
@@ -66,23 +63,33 @@ float kali(float3 pos)
     half sa3 = smoothstep(_SoundMin, _SoundMax, _GlobalAudioSpectrumLevel[3]);
     param.x -= sa1 * 0.01;
     param.y -= sa2 * 0.01;
-    //param.z -= sa3 * 0.01;
-    param.z -= (_TimelineTime.x-30) * 0.01;
-    //param.z -= soundAlpha * 0.1;
+    ////param.z -= sa3 * 0.01;
+    param.x += (_TimelineTime.x-25) * 0.0001;
+    param.y += (_TimelineTime.x-25) * 0.0001;
+    param.z -= (_TimelineTime.x-25) * 0.02;
+    ////param.z -= soundAlpha * 0.1;
 
 	float d = 10000.0;
-	for (int i = 0; i < 6; ++i)
+	for (int i = 0; i < 7; ++i)
 	{
         p = abs(p) / dot(p.xyz, p.xyz);
-        d = min(d, length(p.xy) / (p.w*param.w));
+        d = min(d, length(p.xy) / p.w);
         p.xyz -= param.xyz;
 	}
-	return max(1.0e-5f, d) * 10.0;
+	return max(1.0e-6f, d);
+}
+
+float kaliXform(float3 pos)
+{
+    float3 opos = float3(_RaymarchTransform[0].w, _RaymarchTransform[1].w, _RaymarchTransform[2].w);
+    pos -= opos;
+    pos = mul((float3x3)_RaymarchInverseTransform, pos);
+    return kali(pos);
 }
 
 float kaliHollow(float3 pos)
 {
-	float d = kali(pos);
+	float d = kaliXform(pos);
 	float ds = length(pos-getCameraPosition()) - _KaliParam2.x;
 	return max(d, -ds);
 }
@@ -121,7 +128,7 @@ void raymarch(float2 pos, inout float inoutDistance, out float outSteps, out flo
         inoutDistance += outLastDistance;
         outPos += rayDir * outLastDistance;
         outSteps += 1.0;
-        if (outLastDistance < 0.003 || inoutDistance > maxDistance)
+        if (outLastDistance < 0.003 * _KaliParam.w || inoutDistance > maxDistance)
             break;
     }
     inoutDistance = min(inoutDistance, maxDistance);

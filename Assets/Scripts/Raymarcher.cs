@@ -57,5 +57,6 @@ public class Raymarcher : MonoBehaviour
     public void Update()
     {
     	Shader.SetGlobalMatrix("_RaymarchTransform", transform.localToWorldMatrix);
+	    Shader.SetGlobalMatrix("_RaymarchInverseTransform", transform.worldToLocalMatrix);
     }
 }
