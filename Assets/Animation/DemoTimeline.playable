@@ -1672,6 +1672,90 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 1
   m_Events: []
+--- !u!74 &74187602459276586
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Recorded (12)
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves:
+  - curve:
+    - time: 65.333336
+      value: {fileID: 2100000, guid: 2604c19aa16e840a889a375c015546ee, type: 2}
+    - time: 72.76667
+      value: {fileID: 2100000, guid: 305d8bd1cfd1648a09aacc2de39161e3, type: 2}
+    - time: 77.333336
+      value: {fileID: 2100000, guid: 3baf0c6f0ae8d49a99698095a4168129, type: 2}
+    - time: 83.433334
+      value: {fileID: 2100000, guid: f8a7de6b97a604e97b6530eabeafdf4c, type: 2}
+    - time: 90.73333
+      value: {fileID: 2100000, guid: e6840b1cde9f3445dbb775fe647f5f6f, type: 2}
+    - time: 96.433334
+      value: {fileID: 2100000, guid: cd63e1d157c6d4716a27406460458d99, type: 2}
+    - time: 101.4
+      value: {fileID: 2100000, guid: c471bab0847c94047b092d92fb1add76, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: 
+    classID: 23
+    script: {fileID: 0}
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 23
+      customType: 21
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 2100000, guid: 2604c19aa16e840a889a375c015546ee, type: 2}
+    - {fileID: 2100000, guid: 305d8bd1cfd1648a09aacc2de39161e3, type: 2}
+    - {fileID: 2100000, guid: 3baf0c6f0ae8d49a99698095a4168129, type: 2}
+    - {fileID: 2100000, guid: f8a7de6b97a604e97b6530eabeafdf4c, type: 2}
+    - {fileID: 2100000, guid: e6840b1cde9f3445dbb775fe647f5f6f, type: 2}
+    - {fileID: 2100000, guid: cd63e1d157c6d4716a27406460458d99, type: 2}
+    - {fileID: 2100000, guid: c471bab0847c94047b092d92fb1add76, type: 2}
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 101.41667
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_GenerateMotionCurves: 1
+  m_Events: []
 --- !u!74 &74192580493695834
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -6891,6 +6975,7 @@ MonoBehaviour:
   - {fileID: 114847903820199420}
   - {fileID: 114374414073397722}
   - {fileID: 114293346138661840}
+  - {fileID: 114827265449613076}
   m_Clips: []
   m_Version: 1
 --- !u!114 &114257769297898796
@@ -10134,6 +10219,38 @@ MonoBehaviour:
   m_OpenClipPostExtrapolation: 1
   m_OpenClipOffsetPosition: {x: 0.71, y: 1.59, z: 5.33}
   m_OpenClipOffsetEulerAngles: {x: 270, y: 0, z: 0}
+  m_OpenClipTimeOffset: 0
+  m_MatchTargetFields: 63
+  m_Position: {x: 0, y: 0, z: 0}
+  m_EulerAngles: {x: 0, y: 0, z: 0}
+  m_ApplyOffsets: 0
+  m_AvatarMask: {fileID: 0}
+  m_ApplyAvatarMask: 1
+  m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+--- !u!114 &114827265449613076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1467732076, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
+  m_Name: Animation Track (1)
+  m_EditorClassIdentifier: 
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_AnimClip: {fileID: 74187602459276586}
+  m_Parent: {fileID: 114257080050419134}
+  m_Children: []
+  m_Clips: []
+  m_Version: 1
+  m_OpenClipPreExtrapolation: 1
+  m_OpenClipPostExtrapolation: 1
+  m_OpenClipOffsetPosition: {x: 0, y: 0, z: 0}
+  m_OpenClipOffsetEulerAngles: {x: 0, y: 0, z: 0}
   m_OpenClipTimeOffset: 0
   m_MatchTargetFields: 63
   m_Position: {x: 0, y: 0, z: 0}
