@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: CM Terrain Profile
+  m_Name: CM WeirdShapes Profile
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 114669864811554128}
@@ -96,8 +96,8 @@ MonoBehaviour:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
   ambientOnly:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0
   noiseFilterTolerance:
     overrideState: 0
     value: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
   opacity:
     overrideState: 1
-    value: 0.03
+    value: 0.07
   angle:
     overrideState: 0
     value: 0
