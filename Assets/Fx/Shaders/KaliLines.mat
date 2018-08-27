@@ -20,12 +20,12 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _ByPassSound: 0
-    - _Smoothness: 0.373
+    - _Smoothness: 0.42
     - _SoundBand: 2
     - _SoundMax: 0.1
     - _SoundMin: 0.01
     m_Colors:
-    - _Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+    - _Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
     - _KaliParam: {r: 0.52, g: 0.5, b: 1.5, a: 1.5}
     - _KaliParam2: {r: 2.09, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}

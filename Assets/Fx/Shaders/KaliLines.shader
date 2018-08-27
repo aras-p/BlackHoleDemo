@@ -5,13 +5,11 @@
 		_Color ("Diffuse", Color) = (0.3,0.3,0.3,1.0)
 		_SpecColor ("Specular", Color) = (0.2,0.2,0.2,1.0)
 		_Smoothness ("Smoothness", Range(0,1)) = 0.5
-        _KaliParam ("Param (xyz), Thick (w)", Vector) = (0.52, 0.5, 1.5, 1.5) // xyz: fractal params, w: thickness
-        _KaliParam2 ("Hollow (x)", Vector) = (1.1, 0,0,0)
 
         [IntRange] _SoundBand ("Sound Band", Range(0,9)) = 4
         _SoundMin ("Sound Min", Range(0,0.4)) = 0.1
         _SoundMax("Sound Max", Range(0,0.4)) = 0.3
-        [Toggle] _ByPassSound("No Sound", Float) = 0        
+        [Toggle] _ByPassSound("No Sound", Float) = 0
 	}
 	SubShader
 	{
@@ -38,9 +36,7 @@ CGPROGRAM
 
 #define kMaxRaymarchIterations 100
 
-
-float4 _KaliParam;
-float4 _KaliParam2;
+float4 _Param1, _Param2;
 float4x4 _RaymarchTransform;
 float4x4 _RaymarchInverseTransform;
 float _GlobalAudioSpectrumLevel[10];
@@ -55,18 +51,18 @@ float kali(float3 pos)
 	float len = length(pos);
 	if (len > 7)
 		return len;
-		
+
 	float4 p = float4(pos,1);
-	float4 param = _KaliParam;
-    half sa1 = smoothstep(_SoundMin, _SoundMax, _GlobalAudioSpectrumLevel[1]);
-    half sa2 = smoothstep(_SoundMin, _SoundMax, _GlobalAudioSpectrumLevel[2]);
-    half sa3 = smoothstep(_SoundMin, _SoundMax, _GlobalAudioSpectrumLevel[3]);
-    param.x -= sa1 * 0.01;
-    param.y -= sa2 * 0.01;
+	float4 param = _Param1;
+    //half sa1 = smoothstep(_SoundMin, _SoundMax, _GlobalAudioSpectrumLevel[1]);
+    //half sa2 = smoothstep(_SoundMin, _SoundMax, _GlobalAudioSpectrumLevel[2]);
+    //half sa3 = smoothstep(_SoundMin, _SoundMax, _GlobalAudioSpectrumLevel[3]);
+    //param.x -= sa1 * 0.01;
+    //param.y -= sa2 * 0.01;
     ////param.z -= sa3 * 0.01;
-    param.x += (_TimelineTime.x-25) * 0.0001;
-    param.y += (_TimelineTime.x-25) * 0.0001;
-    param.z -= (_TimelineTime.x-25) * 0.02;
+    //param.x += (_TimelineTime.x-25) * 0.0001;
+    //param.y += (_TimelineTime.x-25) * 0.0001;
+    //param.z -= (_TimelineTime.x-25) * 0.02;
     ////param.z -= soundAlpha * 0.1;
 
 	float d = 10000.0;
@@ -90,7 +86,7 @@ float kaliXform(float3 pos)
 float kaliHollow(float3 pos)
 {
 	float d = kaliXform(pos);
-	float ds = length(pos-getCameraPosition()) - _KaliParam2.x;
+	float ds = length(pos-getCameraPosition()) - _Param2.x;
 	return max(d, -ds);
 }
 
@@ -120,6 +116,8 @@ void raymarch(float2 pos, inout float inoutDistance, out float outSteps, out flo
     float maxDistance = _ProjectionParams.z - _ProjectionParams.y;
     outPos = camPos + rayDir * inoutDistance;
 
+    float width = _Param1.w + smoothstep(_SoundMin, _SoundMax, _GlobalAudioSpectrumMean[4]) * 3;
+
     outSteps = 0.0;
     outLastDistance = 0.0;
     for (int i = 0; i < kMaxRaymarchIterations; ++i)
@@ -128,7 +126,7 @@ void raymarch(float2 pos, inout float inoutDistance, out float outSteps, out flo
         inoutDistance += outLastDistance;
         outPos += rayDir * outLastDistance;
         outSteps += 1.0;
-        if (outLastDistance < 0.003 * _KaliParam.w || inoutDistance > maxDistance)
+        if (outLastDistance < 0.003 * width || inoutDistance > maxDistance)
             break;
     }
     inoutDistance = min(inoutDistance, maxDistance);
@@ -162,7 +160,7 @@ gbuffer_out frag(float4 ipos : SV_Position)
     half3 ambient = ShadeSH9(half4(normal,1)) * color;
     o.emission = half4(ambient,1);
     o.depth = computeDepth(mul(UNITY_MATRIX_VP, float4(ray_pos, 1.0)));
-    return o;	
+    return o;
 }
 ENDCG
 		}

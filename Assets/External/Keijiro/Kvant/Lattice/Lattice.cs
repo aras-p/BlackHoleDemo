@@ -46,7 +46,7 @@ namespace Kvant
 
         #region Noise Parameters
 
-        [SerializeField, Range(0, 1)]
+        [SerializeField, Range(0, 10)]
         float _noiseFrequency = 0.3f;
 
         public float noiseFrequency {

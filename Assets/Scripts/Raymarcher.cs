@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
@@ -8,6 +7,8 @@ using UnityEngine.Rendering.PostProcessing;
 public class Raymarcher : MonoBehaviour
 {
     public Material m_Material;
+	public Vector4 m_Param1;
+	public Vector4 m_Param2;
 
     CommandBuffer m_CB;
     HashSet<Camera> m_Cameras = new HashSet<Camera>();
@@ -58,5 +59,10 @@ public class Raymarcher : MonoBehaviour
     {
     	Shader.SetGlobalMatrix("_RaymarchTransform", transform.localToWorldMatrix);
 	    Shader.SetGlobalMatrix("_RaymarchInverseTransform", transform.worldToLocalMatrix);
+	    if (m_Material != null)
+	    {
+		    m_Material.SetVector("_Param1", m_Param1);
+		    m_Material.SetVector("_Param2", m_Param2);
+	    }
     }
 }
