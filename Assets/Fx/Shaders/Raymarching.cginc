@@ -71,4 +71,49 @@ struct gbuffer_out
     float depth             : SV_Depth;
 };
 
+#define mod(x, y) ((x) - (y) * floor((x) / (y)))
+
+float max3(float3 p) { return max(p.x,max(p.y,p.z)); }
+float min3(float3 p) { return min(p.x,min(p.y,p.z)); }
+
+float sdBox (float3 p, float3 b)
+{
+    float3 di = abs(p) - b;
+    float mc = max3(di);
+    return min(mc,length(max(di,0.0)));
+}
+
+// vertical (along y axis) cylinder; placed at c.xy position, with c.z radius
+float sdCylinder(float3 p, float3 c)
+{
+    return length(p.xz-c.xy)-c.z;
+}
+
+float sdSphere(float3 p, float s)
+{
+    return length(p)-s;
+}
+
+// n.xyz must be normalized
+float sdPlane(float3 p, float4 n)
+{
+    return dot(p, n.xyz) + n.w;
+}
+
+float opUnion(float a, float b)
+{
+    return min(a, b);
+}
+
+float opSubtract(float a, float b)
+{
+    return max(-a, b);
+}
+
+float opIntersect(float a, float b)
+{
+    return max(a, b);
+}
+
+
 #endif
