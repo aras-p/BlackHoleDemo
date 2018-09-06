@@ -1,0 +1,181 @@
+// Swarm - Special renderer that draws a swarm of swirling/crawling lines.
+// https://github.com/keijiro/Swarm
+
+#pragma kernel SwirlingUpdate
+#pragma kernel SwirlingReconstruct
+
+#include "UnityCG.cginc"
+#include "SimplexNoise3D.cginc"
+
+RWStructuredBuffer<float4> PositionBuffer;
+RWStructuredBuffer<float4> TangentBuffer;
+RWStructuredBuffer<float4> NormalBuffer;
+
+StructuredBuffer<float4> PositionBufferRO;
+
+CBUFFER_START(Params)
+    uint InstanceCount;
+    uint HistoryLength;
+    float RandomSeed;
+    float Spread;
+    float StepWidth;
+    float NoiseFrequency;
+    float3 NoiseOffset;
+CBUFFER_END
+
+#define PI      3.1415926535897932384626433832795
+
+float deg2rad(float  deg) { return deg*PI/180.0; }
+
+float max3(float3 p) { return max(p.x,max(p.y,p.z)); }
+float min3(float3 p) { return min(p.x,min(p.y,p.z)); }
+
+float sdBox (float3 p, float3 b)
+{
+    float3 di = abs(p) - b;
+    float mc = max3(di);
+    return min(mc,length(max(di,0.0)));
+}
+
+// h: cos a, sin a, baseWidth. done as intersection(octahedron, box)
+float sdPyramid(float3 p, float3 h)
+{
+    // Tetrahedron = Octahedron * Cube
+    float dist = h.z * h.x;
+    float height = dist / h.y;
+    float box = sdBox(p - float3(0,height/2,0), float3(h.z,height/2,h.z));
+ 
+    float d = 0.0;
+    d = max( d, abs( dot(p, float3( -h.x, h.y, 0 )) ));
+    d = max( d, abs( dot(p, float3(  h.x, h.y, 0 )) ));
+    d = max( d, abs( dot(p, float3(  0, h.y, h.x )) ));
+    d = max( d, abs( dot(p, float3(  0, h.y,-h.x )) ));
+    float octa = d - dist;
+    return max(box,octa);
+}
+
+#define mod(x, y) ((x) - (y) * floor((x) / (y)))
+
+
+float map(float3 p)
+{
+    float repeatSize = 1.2;
+    p.xz = mod(p.xz + 0.5*repeatSize, repeatSize) - 0.5*repeatSize;
+    //p.xz -= 0.6;
+
+    //p.xz -= 0.6;
+    float3 pyr = float3(cos(deg2rad(34)), sin(deg2rad(34)), 0.6);
+    float d = sdPyramid(p, pyr);
+    return d;
+}
+
+float3 calcNormal(float3 p)
+{
+    const float d = 0.2;
+    return normalize( float3(
+        map(p+float3(  d,0.0,0.0))-map(p+float3( -d,0.0,0.0)),
+        map(p+float3(0.0,  d,0.0))-map(p+float3(0.0, -d,0.0)),
+        map(p+float3(0.0,0.0,  d))-map(p+float3(0.0,0.0, -d))));
+}
+
+
+float Random(float u, float v)
+{
+    float f = dot(float2(12.9898, 78.233), float2(u, v)) + RandomSeed;
+    return frac(43758.5453 * sin(f));
+}
+
+// Nearly uniformly distributed random vector in the unit sphere.
+float3 RandomPoint(float id)
+{
+    float u = Random(id * 0.01334, 0.3728) * UNITY_PI * 2;
+    float z = Random(0.8372, id * 0.01197) * 2 - 1;
+    float l = Random(4.438, id * 0.01938 - 4.378);
+    return float3(float2(cos(u), sin(u)) * sqrt(1 - z * z), z) * sqrt(l);
+}
+
+float3 RandomStartingPoint(float id)
+{
+    float x = (Random(id * 0.01334, 0.3728) * 1.5 - 0.75) * 4;
+    float z = (Random(0.8372, id * 0.01197) * 1.5 - 0.75) * 4;
+    float y = Random(4.438, id * 0.01938 - 4.378);
+    return float3(x, y, z);
+}
+
+[numthreads(64, 1, 1)]
+void SwirlingUpdate(uint id : SV_DispatchThreadID)
+{
+    // Determine the first point: pick something close to surface
+    float3 p;
+    float dist = 10000;
+    for (int i = 0; i < 10; ++i)
+    {
+        float3 pp = RandomStartingPoint(id + i * 1337.3);
+        float distp = abs(map(pp));
+        if (distp < dist)
+        {
+            p = pp;
+            dist = distp;
+        }
+    }
+    //float3 p = RandomPoint(id) * Spread;
+    
+    float colorIndex = min(p.y / 0.9 * 6.0, 5.9);
+    PositionBuffer[id] = float4(p, colorIndex);
+
+    for (uint i = 1; i < HistoryLength; i++)
+    {
+        // Divergence-free noise field.
+        //float4 sn1 = snoise(98.4898 + p * NoiseFrequency + NoiseOffset);
+        float4 sn1 = float4(calcNormal(p), map(p));
+        float4 sn2 = snoise( 1.2278 - p * NoiseFrequency + NoiseOffset);
+
+        // Move and store the point.
+        p += cross(sn1.xyz, sn2.xyz) * StepWidth;
+        PositionBuffer[id + i * InstanceCount] = float4(p, colorIndex);
+    }
+}
+
+[numthreads(64, 1, 1)]
+void SwirlingReconstruct(uint id : SV_DispatchThreadID)
+{
+    // Reconstruct the first point.
+    float3 p0 = PositionBufferRO[id].xyz;
+    float3 p1 = PositionBufferRO[id + InstanceCount].xyz;
+
+    float3 t0 = normalize(p1 - p0);
+    float3 b0 = cross(t0, normalize(p0));
+    float3 n0 = cross(b0, t0);
+
+    TangentBuffer[id] = float4(t0, 0);
+    NormalBuffer[id] = float4(n0, 0);
+
+    // Sequentially reconstruct the points excepting the last one.
+    for (uint i = 1; i < HistoryLength - 1; i++)
+    {
+        uint index = id + i * InstanceCount;
+
+        float3 p0 = PositionBufferRO[index - InstanceCount].xyz;
+        float3 p2 = PositionBufferRO[index + InstanceCount].xyz;
+
+        float3 t1 = normalize(p2 - p0);
+        float3 n1 = normalize(cross(b0, t1));
+
+        TangentBuffer[index] = float4(t1, 0);
+        NormalBuffer[index] = float4(n1, 0);
+
+        b0 = cross(t1, n1);
+    }
+
+    // Reconstruct the last point.
+    uint index = id + (HistoryLength - 1) * InstanceCount;
+
+    p0 = PositionBufferRO[index - InstanceCount].xyz;
+    p1 = PositionBufferRO[index].xyz;
+
+    float3 t1 = normalize(p1 - p0);
+    float3 n1 = normalize(cross(b0, t1));
+
+    TangentBuffer[index] = float4(t1, 0);
+    NormalBuffer[index] = float4(n1, 0);
+}
