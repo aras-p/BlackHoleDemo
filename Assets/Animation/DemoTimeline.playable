@@ -14,6 +14,7 @@ MonoBehaviour:
   m_NextId: 0
   m_Tracks:
   - {fileID: 114513449105786824}
+  - {fileID: 114909304592764640}
   - {fileID: 114588892359078568}
   - {fileID: 114922416109015256}
   - {fileID: 114257080050419134}
@@ -5935,8 +5936,6 @@ MonoBehaviour:
   m_Parent: {fileID: 11400000}
   m_Children:
   - {fileID: 114698728882943028}
-  - {fileID: 114494022258991620}
-  - {fileID: 114315468451400546}
   m_Clips: []
   m_Version: 1
 --- !u!114 &114044943155310094
@@ -6820,7 +6819,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 74131608321385486}
-  m_Parent: {fileID: 114383148130344260}
+  m_Parent: {fileID: 114205019357147562}
   m_Children: []
   m_Clips: []
   m_Version: 1
@@ -6911,7 +6910,10 @@ MonoBehaviour:
   m_AnimClip: {fileID: 0}
   m_Parent: {fileID: 11400000}
   m_Children:
+  - {fileID: 114182445479289092}
   - {fileID: 114734020513684174}
+  - {fileID: 114494022258991620}
+  - {fileID: 114315468451400546}
   - {fileID: 114971221815865278}
   - {fileID: 114810447847431518}
   - {fileID: 114145613559285676}
@@ -7320,7 +7322,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 74679873187744764}
-  m_Parent: {fileID: 114041599870822838}
+  m_Parent: {fileID: 114205019357147562}
   m_Children: []
   m_Clips: []
   m_Version: 1
@@ -7779,9 +7781,7 @@ MonoBehaviour:
   m_AnimClip: {fileID: 0}
   m_Parent: {fileID: 11400000}
   m_Children:
-  - {fileID: 114909304592764640}
   - {fileID: 114414266933589660}
-  - {fileID: 114182445479289092}
   m_Clips: []
   m_Version: 1
 --- !u!114 &114387626564282020
@@ -7979,7 +7979,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 0}
-  m_Parent: {fileID: 114041599870822838}
+  m_Parent: {fileID: 114205019357147562}
   m_Children: []
   m_Clips:
   - m_Start: 105.96666666666667
@@ -11014,7 +11014,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 0}
-  m_Parent: {fileID: 114383148130344260}
+  m_Parent: {fileID: 11400000}
   m_Children: []
   m_Clips:
   - m_Start: 0

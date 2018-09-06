@@ -68,18 +68,19 @@ float2 opU(float2 a, float2 b)
 
 static const half4 _Colors[6] = 
 {
-    half4(0.658, 0.051, 0.095, 1.000),
-    half4(0.831, 0.202, 0.045, 1.000),
-    half4(0.896, 0.591, 0.082, 1.000),
-    half4(0.181, 0.397, 0.054, 1.000),
-    half4(0.082, 0.474, 0.939, 1.000),
     half4(0.314, 0.040, 0.730, 1.000),
+    half4(0.082, 0.474, 0.939, 1.000),
+    half4(0.181, 0.397, 0.054, 1.000),
+    half4(0.896, 0.591, 0.082, 1.000),
+    half4(0.831, 0.202, 0.045, 1.000),
+    half4(0.658, 0.051, 0.095, 1.000),
 };
 
 float2 pyramidScene(float3 p)
 {
+    p.xz -= 0.6;
     float3 origPos = p;
-    float repeatSize = 2.0;
+    float repeatSize = 1.2;
     p.xz = mod(p.xz, repeatSize) - 0.5*repeatSize;
     float2 pIndex = trunc(abs(origPos.xz - p.xz) / repeatSize);
     float pDistanceFromCenter = pIndex.x + pIndex.y;
@@ -91,11 +92,12 @@ float2 pyramidScene(float3 p)
     float disasmY = _Param1.x * (1 + _Param1.z * (pDistanceFromCenter));
     float disasmRot = _Param1.y * 0.1 * (1 + _Param1.w * (pDistanceFromCenter));
     
-    float3 pyr = float3(cos(deg2rad(33)), sin(deg2rad(33)), 1.0);
+    float3 pyr = float3(cos(deg2rad(34)), sin(deg2rad(34)), 0.6);
     float2 pDist = float2(10000, 0);
     for (int i = 0; i < 6; ++i)
     {
         float2 pSlice = sdPyramid(rotateY(p - float3(0,disasmY*i,0), disasmRot*i), pyr, i);
+        //float2 pSlice = sdPyramid(p - float3(0,disasmY*i,0), pyr, i);
         pDist = opU(pDist, pSlice);
     }
     return pDist;

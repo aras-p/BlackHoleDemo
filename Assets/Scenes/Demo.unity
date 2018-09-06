@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028374, g: 0.22571413, b: 0.3069228, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017690496, g: 0.000000029677665, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -731,7 +731,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: dbc4a334f2d6ecd4c8e5051c09525f06, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.20207942
+      value: 0.5278908
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: dbc4a334f2d6ecd4c8e5051c09525f06, type: 3}
       propertyPath: m_RootOrder
@@ -1093,7 +1093,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 242599230}
-  m_LocalRotation: {x: 0.11903337, y: -0.052469138, z: 0.005158793, w: 0.9914449}
+  m_LocalRotation: {x: 0.11904381, y: -0.052473743, z: 0.005159246, w: 0.9914449}
   m_LocalPosition: {x: 0.6247272, y: 1.4355729, z: -6.493131}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
@@ -1628,7 +1628,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: bcedf6cbf833e7e4e866c9a396aff01c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.47381446
+      value: 0.65152216
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: bcedf6cbf833e7e4e866c9a396aff01c, type: 3}
       propertyPath: m_RootOrder
@@ -2485,7 +2485,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 353f087c270ccad4f80ad5b087541271, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9302007
+      value: 0.17379262
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 353f087c270ccad4f80ad5b087541271, type: 3}
       propertyPath: m_RootOrder
@@ -3531,7 +3531,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 8ee96a5a5c9217546bb01e2754068791, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8416922
+      value: 0.3013811
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 8ee96a5a5c9217546bb01e2754068791, type: 3}
       propertyPath: m_RootOrder
@@ -4453,11 +4453,11 @@ Transform:
   - {fileID: 387285109}
   - {fileID: 969836033}
   - {fileID: 1633132455}
-  - {fileID: 862167823}
+  - {fileID: 2130573401}
   - {fileID: 812902168}
   - {fileID: 637964430}
   - {fileID: 198675094}
-  - {fileID: 2130573401}
+  - {fileID: 862167823}
   - {fileID: 1156223370}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -5339,7 +5339,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d6888f9a51be9f94dab4404c42086597, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7053136
+      value: 0.19393992
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d6888f9a51be9f94dab4404c42086597, type: 3}
       propertyPath: m_RootOrder
@@ -6818,7 +6818,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1675338802}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 0.8466045}
   m_LocalPosition: {x: 0.7182597, y: 1.650503, z: -7.4652715}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7349,7 +7349,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1724912223}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 0.7879336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 0.9896695}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7833,7 +7833,7 @@ GameObject:
   - component: {fileID: 1898492632}
   - component: {fileID: 1898492633}
   m_Layer: 0
-  m_Name: Directional Light2
+  m_Name: Light Pyramids
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8505,7 +8505,7 @@ Transform:
   - {fileID: 1581219270}
   - {fileID: 397816493}
   m_Father: {fileID: 1026244003}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2130573402
 MonoBehaviour:
