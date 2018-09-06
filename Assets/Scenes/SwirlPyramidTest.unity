@@ -496,14 +496,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a5fda7d0d9e92468f32bd6dbbf718f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _instanceCount: 10000
+  _instanceCount: 1000
+  _drawAmount: 1
   _template: {fileID: 11400000, guid: 2f3e96656444aa24b895cfe3b9d3cc1d, type: 2}
-  _radius: 0.01
-  _length: 0.3
+  _radius: 0.009
+  _length: 0.45
   _spread: 1
   _noiseFrequency: 0.5
   _noiseMotion: {x: 0, y: 0.1, z: 0}
-  _time: 15.85
+  _time: 3.7
   _material: {fileID: 2100000, guid: b3e73ed1912d1474f998247575b31fe5, type: 2}
   _randomSeed: 0
   _compute: {fileID: 7200000, guid: 70e8fc98ef3d1974485d153a4e66dbcc, type: 3}
@@ -514,7 +515,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1381841503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.45, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

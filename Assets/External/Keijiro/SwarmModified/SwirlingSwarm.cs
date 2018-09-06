@@ -1,7 +1,6 @@
 // Swarm - Special renderer that draws a swarm of swirling/crawling lines.
 // Modified version from original over at https://github.com/keijiro/Swarm
 
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -10,66 +9,26 @@ namespace Swarm
     [ExecuteInEditMode]
     public sealed class SwirlingSwarm : MonoBehaviour
     {        
-        [SerializeField] int _instanceCount = 1000;
-
-        public int instanceCount {
-            get { return _instanceCount; }
-        }
+        [Range(0,10000)][SerializeField] int _instanceCount = 1000;
+        [Range(0.0f,1.0f)][SerializeField] float _drawAmount = 1.0f;
 
         [SerializeField] TubeTemplate _template;
 
-        public TubeTemplate template {
-            get { return _template; }
-        }
-
-        [SerializeField] float _radius = 0.005f;
-
-        public float radius {
-            get { return _radius; }
-            set { _radius = value; }
-        }
+        [Range(0.0f,0.05f)][SerializeField] float _radius = 0.005f;
 
         [SerializeField] float _length = 1;
 
-        public float length {
-            get { return _length; }
-            set { _length = value; }
-        }
-
         [SerializeField] float _spread = 1;
-
-        public float spread {
-            get { return _spread; }
-            set { _spread = value; }
-        }
 
         [SerializeField] float _noiseFrequency = 0.5f;
 
-        public float noiseFrequency {
-            get { return _noiseFrequency; }
-            set { _noiseFrequency = value; }
-        }
-
         [SerializeField] Vector3 _noiseMotion = Vector3.up * 0.1f;
 
-        public Vector3 noiseMotion {
-            get { return _noiseMotion; }
-            set { _noiseMotion = value; }
-        }
-
-        [SerializeField]  float _time = 0.0f;
+        [SerializeField]  float _time;
 
         [SerializeField] Material _material;
 
-        public Material material {
-            get { return _material; }
-        }
-
         [SerializeField] int _randomSeed;
-
-        public int randomSeed {
-            set { _randomSeed = value; }
-        }
 
         [SerializeField, HideInInspector] ComputeShader _compute;
 
@@ -79,66 +38,26 @@ namespace Swarm
         ComputeBuffer _normalBuffer;
         MaterialPropertyBlock _props;
         Vector3 _noiseOffset;
+        int _prevInstanceCount = -1;
 
         const int kThreadCount = 64;
-        int ThreadGroupCount { get { return _instanceCount / kThreadCount; } }
-        int InstanceCount { get { return kThreadCount * ThreadGroupCount; } }
-        int HistoryLength { get { return _template.segments + 1; } }
-        
-        CommandBuffer m_CB;
-        HashSet<Camera> m_Cameras = new HashSet<Camera>();
-        
+        int ThreadGroupCount => _instanceCount / kThreadCount;
+        int InstanceCount => kThreadCount * ThreadGroupCount;
+        int HistoryLength => _template.segments + 1;
+
         void OnEnable()
         {
-            Camera.onPreRender += MyPreRender;
             Initialize();
         }
 
         void OnDisable()
         {            
-            Camera.onPreRender -= MyPreRender;
-            if (m_CB != null)
-            {
-                foreach (var cam in m_Cameras)
-                {
-                    if (cam != null)
-                        cam.RemoveCommandBuffer(CameraEvent.AfterGBuffer, m_CB);
-                }
-                m_Cameras.Clear();
-            }
-            m_CB = null;
-            
             if (_drawArgsBuffer != null) _drawArgsBuffer.Release();
             if (_positionBuffer != null) _positionBuffer.Release();
             if (_tangentBuffer != null) _tangentBuffer.Release();
             if (_normalBuffer != null) _normalBuffer.Release();
-            //if (_materialCloned) DestroyImmediate(_material);
-            //_materialCloned = false;
         }
         
-        public void MyPreRender(Camera cam)
-        {
-            if (_material == null || _template == null || _template.mesh == null || _drawArgsBuffer == null || _props == null)
-                return;
-
-            if (cam.cameraType != CameraType.Game && cam.cameraType != CameraType.SceneView)
-                return;
-
-            if (m_CB==null)
-            {
-                m_CB = new CommandBuffer();
-                m_CB.name = "Swirl";
-                m_CB.DrawMeshInstancedIndirect(_template.mesh, 0, _material, 0, _drawArgsBuffer, 0, _props);
-            }
-
-            if (!m_Cameras.Contains(cam))
-            {
-                cam.AddCommandBuffer(CameraEvent.AfterGBuffer, m_CB);
-                m_Cameras.Add(cam);
-            }
-        }
-        
-
         void OnValidate()
         {
             _instanceCount = Mathf.Max(kThreadCount, _instanceCount);
@@ -155,10 +74,6 @@ namespace Swarm
                 1, 5 * sizeof(uint), ComputeBufferType.IndirectArguments
             );
 
-            _drawArgsBuffer.SetData(new uint[5] {
-                _template.mesh.GetIndexCount(0), (uint)InstanceCount, 0, 0, 0
-            });
-
             // Allocate compute buffers.
             _positionBuffer = new ComputeBuffer(HistoryLength * InstanceCount, 16);
             _tangentBuffer = new ComputeBuffer(HistoryLength * InstanceCount, 16);
@@ -174,7 +89,25 @@ namespace Swarm
         {
             if (_compute == null || _material == null)
                 return;
+
+            if (_prevInstanceCount != _instanceCount)
+            {
+                OnDisable();
+                OnEnable();
+                _prevInstanceCount = _instanceCount;
+            }
+            
+            _drawArgsBuffer.SetData(new uint[] {
+                _template.mesh.GetIndexCount(0),
+                (uint)(InstanceCount * _drawAmount),
+                0,
+                0,
+                0
+            });
+            
             // Invoke the update compute kernel.
+            _noiseOffset = _noiseMotion * _time;
+            
             var kernel = _compute.FindKernel("SwirlingUpdate");
 
             _compute.SetInt("InstanceCount", InstanceCount);
@@ -213,10 +146,8 @@ namespace Swarm
             _props.SetInt("_InstanceCount", InstanceCount);
             _props.SetInt("_HistoryLength", HistoryLength);
             _props.SetInt("_IndexLimit", HistoryLength);
-
-            // Move the noise field.
-            //_noiseOffset += _noiseMotion * Time.deltaTime;
-            _noiseOffset = _noiseMotion * _time;
+            
+            Graphics.DrawMeshInstancedIndirect(_template.mesh, 0, _material, new Bounds(Vector3.zero, new Vector3(5,5,5)), _drawArgsBuffer, 0, _props, ShadowCastingMode.On, true);
         }
     }
 }
