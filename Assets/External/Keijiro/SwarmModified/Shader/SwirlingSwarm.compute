@@ -97,10 +97,13 @@ float3 RandomPoint(float id)
 
 float3 RandomStartingPoint(float id)
 {
-    float x = (Random(id * 0.01334, 0.3728) * 1.5 - 0.75) * 4;
-    float z = (Random(0.8372, id * 0.01197) * 1.5 - 0.75) * 4;
+    float a = Random(id * 0.01334, 0.3728) * 2 * PI;
+    float l = Random(0.8372, id * 0.01197) * 4;
+    float x = cos(a) * l;
+    float z = sin(a) * l;
     float y = Random(4.438, id * 0.01938 - 4.378);
-    return float3(x, y, z);
+    float3 pos = float3(x, y, z);
+    return pos;
 }
 
 [numthreads(64, 1, 1)]
@@ -109,17 +112,16 @@ void SwirlingUpdate(uint id : SV_DispatchThreadID)
     // Determine the first point: pick something close to surface
     float3 p;
     float dist = 10000;
-    for (int i = 0; i < 10; ++i)
+    for (int i = 0; i < 4; ++i)
     {
         float3 pp = RandomStartingPoint(id + i * 1337.3);
-        float distp = abs(map(pp));
+        float distp = map(pp);
         if (distp < dist)
         {
             p = pp;
             dist = distp;
         }
     }
-    //float3 p = RandomPoint(id) * Spread;
     
     float colorIndex = min(p.y / 0.9 * 6.0, 5.9);
     PositionBuffer[id] = float4(p, colorIndex);
@@ -127,9 +129,8 @@ void SwirlingUpdate(uint id : SV_DispatchThreadID)
     for (uint i = 1; i < HistoryLength; i++)
     {
         // Divergence-free noise field.
-        //float4 sn1 = snoise(98.4898 + p * NoiseFrequency + NoiseOffset);
         float4 sn1 = float4(calcNormal(p), map(p));
-        float4 sn2 = snoise( 1.2278 - p * NoiseFrequency + NoiseOffset);
+        float4 sn2 = snoise(1.2278 - p * NoiseFrequency + NoiseOffset);
 
         // Move and store the point.
         p += cross(sn1.xyz, sn2.xyz) * StepWidth;

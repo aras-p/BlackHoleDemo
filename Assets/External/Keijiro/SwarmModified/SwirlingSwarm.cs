@@ -147,7 +147,7 @@ namespace Swarm
             _props.SetInt("_HistoryLength", HistoryLength);
             _props.SetInt("_IndexLimit", HistoryLength);
             
-            Graphics.DrawMeshInstancedIndirect(_template.mesh, 0, _material, new Bounds(Vector3.zero, new Vector3(5,5,5)), _drawArgsBuffer, 0, _props, ShadowCastingMode.On, true);
+            Graphics.DrawMeshInstancedIndirect(_template.mesh, 0, _material, new Bounds(transform.position, new Vector3(20,20,20)), _drawArgsBuffer, 0, _props, ShadowCastingMode.On, true);
         }
     }
 }
