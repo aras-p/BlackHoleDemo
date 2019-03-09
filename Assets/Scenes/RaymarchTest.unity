@@ -199,6 +199,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &402836851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 402836853}
+  - component: {fileID: 402836852}
+  m_Layer: 0
+  m_Name: Raymarch_KaliNoise
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &402836852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402836851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaffc2aee44446759c6090adc04548e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 800d3a6001550495ab699e7ce2bfb77e, type: 2}
+  m_Param1: {x: 0.53, y: 0.67, z: 0.51, w: -1.7}
+  m_Param2: {x: 0.76, y: 1.14, z: 0.03, w: -0.01}
+--- !u!4 &402836853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402836851}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &448626311
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +361,7 @@ Camera:
   m_GameObject: {fileID: 564610583}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -357,7 +400,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 564610583}
   m_LocalRotation: {x: -0.099045746, y: 0.89239913, z: 0.23911758, w: 0.3696438}
-  m_LocalPosition: {x: -0.18, y: -0.15, z: 0.8}
+  m_LocalPosition: {x: -0.04, y: -0.03, z: 0.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -608,12 +651,12 @@ GameObject:
   - component: {fileID: 1199409597}
   - component: {fileID: 1199409596}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameObject_PyramidFractal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1199409596
 MonoBehaviour:
   m_ObjectHideFlags: 0
