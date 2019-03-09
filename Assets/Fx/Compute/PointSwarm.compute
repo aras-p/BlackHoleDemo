@@ -1,0 +1,88 @@
+#pragma kernel SwarmInitialize
+#pragma kernel SwarmUpdate
+
+#include "UnityCG.cginc"
+#include "../../External/Keijiro/SwarmModified/Shader/SimplexNoise3D.cginc"
+
+struct Point
+{
+    float3 pos;
+    float3 col;
+};
+
+RWStructuredBuffer<Point> PointBuffer;
+Texture2D ProjTexture;
+SamplerState smp_linear_clamp;
+
+CBUFFER_START(Params)
+    uint PointsX, PointsY, PointsZ;
+    float3 BoundsMin, BoundsMax;
+    float RandomSeed;
+    float NoiseFrequency;
+    float3 NoiseOffset;
+    float StepWidth;      
+CBUFFER_END
+
+
+float Random(float u, float v)
+{
+    float f = dot(float2(12.9898, 78.233), float2(u, v)) + RandomSeed;
+    return frac(43758.5453 * sin(f));
+}
+/*
+
+// Nearly uniformly distributed random vector in the unit sphere.
+float3 RandomPoint(float id)
+{
+    float u = Random(id * 0.01334, 0.3728) * UNITY_PI * 2;
+    float z = Random(0.8372, id * 0.01197) * 2 - 1;
+    float l = Random(4.438, id * 0.01938 - 4.378);
+    return float3(float2(cos(u), sin(u)) * sqrt(1 - z * z), z) * sqrt(l);
+}
+
+float3 RandomStartingPoint(float id)
+{
+    float a = Random(id * 0.01334, 0.3728) * 2 * UNITY_PI;
+    float l = Random(0.8372, id * 0.01197) * 4;
+    float x = cos(a) * l;
+    float z = sin(a) * l;
+    float y = Random(4.438, id * 0.01938 - 4.378);
+    float3 pos = float3(x, y, z);
+    return pos;
+}
+*/
+
+[numthreads(4, 4, 4)]
+void SwarmInitialize(uint3 dtid : SV_DispatchThreadID)
+{
+    if (dtid.x >= PointsX || dtid.y >= PointsY || dtid.z >= PointsZ)
+        return;
+    
+    Point pt;
+    pt.pos.x = (dtid.x + Random(dtid.x, dtid.y)) / (float)PointsX;
+    pt.pos.y = (dtid.y + Random(dtid.y, dtid.x)) / (float)PointsY;
+    pt.pos.z = (dtid.z + Random(dtid.x*2, dtid.y)) / (float)PointsZ;
+    float4 texcol = ProjTexture.SampleLevel(smp_linear_clamp, pt.pos.xy, 0);
+    pt.col = texcol.rgb;
+    pt.pos = lerp(BoundsMin, BoundsMax, pt.pos);
+    uint id = dtid.z * PointsX * PointsY + dtid.y * PointsX + dtid.x;
+    PointBuffer[id] = pt;
+}
+
+[numthreads(4, 4, 4)]
+void SwarmUpdate(uint3 dtid : SV_DispatchThreadID)
+{
+    if (dtid.x >= PointsX || dtid.y >= PointsY || dtid.z >= PointsZ)
+        return;
+
+    uint id = dtid.z * PointsX * PointsY + dtid.y * PointsX + dtid.x;
+    
+    float3 p = PointBuffer[id].pos;
+    
+    // Divergence-free noise field
+    float4 sn1 = snoise(98.4898 + p * NoiseFrequency + NoiseOffset);
+    float4 sn2 = snoise( 1.2278 - p * NoiseFrequency + NoiseOffset);
+    // Move and store the point
+    p += cross(sn1.xyz, sn2.xyz) * StepWidth;
+    PointBuffer[id].pos = p;
+}

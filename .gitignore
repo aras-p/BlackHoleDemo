@@ -3,6 +3,7 @@ Temp/*
 Logs/*
 *.csproj
 *.sln
+*.sln.*.user
 .vs/
 obj/
 .idea/*
