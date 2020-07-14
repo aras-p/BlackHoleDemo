@@ -11,12 +11,14 @@ public class RuntimeTimelineSeek : MonoBehaviour
 	void Start ()
     {
         _director = GetComponent<PlayableDirector>();
-	}
+    }
 
 	void Update ()
     {
         if (Application.isPlaying)
         {
+            if (Cursor.visible)
+                Cursor.visible = false;
             if (Input.GetKeyDown(KeyCode.O))
                 _director.time = _director.time - delta;
             if (Input.GetKeyDown(KeyCode.P))
