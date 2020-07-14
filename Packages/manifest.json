@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.unity.burst": "0.2.4-preview.25",
     "com.unity.cinemachine": "2.2.7",
     "com.unity.package-manager-ui": "1.9.11",
     "com.unity.postprocessing": "2.0.11-preview",

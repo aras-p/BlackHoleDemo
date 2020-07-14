@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(AudioSpectrum))]
 public class AudioSpectrumInspector : Editor
 {
@@ -88,3 +89,4 @@ public class AudioSpectrumInspector : Editor
         }
     }
 }
+#endif

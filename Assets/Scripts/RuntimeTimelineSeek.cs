@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -13,7 +12,7 @@ public class RuntimeTimelineSeek : MonoBehaviour
     {
         _director = GetComponent<PlayableDirector>();
 	}
-	
+
 	void Update ()
     {
         if (Application.isPlaying)
@@ -22,6 +21,14 @@ public class RuntimeTimelineSeek : MonoBehaviour
                 _director.time = _director.time - delta;
             if (Input.GetKeyDown(KeyCode.P))
                 _director.time = _director.time + delta;
+            if (Input.GetKeyDown(KeyCode.Escape) || _director.time >= 264)
+            {
+                #if UNITY_EDITOR
+                EditorApplication.isPlaying = false;
+                #else
+                Application.Quit();
+                #endif
+            }
         }
         Shader.SetGlobalVector("_TimelineTime", new Vector4((float)_director.time, 0,0,0));
 	}
