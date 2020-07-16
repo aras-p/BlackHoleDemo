@@ -33,7 +33,7 @@
         float ct = saturate((abs(1 - frac(pot) * 2) - 1 + fww) / fww);
 
         // Frequency filter
-        ct = lerp(ct, 0, smoothstep(0.25, 0.5, fw));
+        ct = lerp(ct, 0, smoothstep(0.0, 0.04, fw));
 
         return float2(pot, ct);
     }
