@@ -9,3 +9,5 @@ obj/
 .idea/*
 _art-orig/*
 Builds
+Assets/Plugins
+Assets/Plugins.meta
