@@ -12,65 +12,9 @@ MonoBehaviour:
   m_Name: CM WeirdShapes Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 114669864811554128}
-  - {fileID: 114035861033127070}
   - {fileID: 114377850811406212}
   - {fileID: 114794485138486630}
   - {fileID: 114279878222712972}
---- !u!114 &114035861033127070
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94488653724e0384d94b7a5e7bc68a14, type: 3}
-  m_Name: Isoline
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  baseAxis:
-    overrideState: 1
-    value: {x: 0.4, y: 1, z: 0}
-  lineInterval:
-    overrideState: 1
-    value: 0.3
-  lineOffset:
-    overrideState: 0
-    value: 0
-  lineScroll:
-    overrideState: 0
-    value: 1
-  lineColor:
-    overrideState: 1
-    value: {r: 1.4980392, g: 1.4980392, b: 1.4980392, a: 1}
-  lineWidth:
-    overrideState: 1
-    value: 1.5
-  sourceContribution:
-    overrideState: 0
-    value: 1
-  backgroundColor:
-    overrideState: 0
-    value: {r: 0, g: 0, b: 0, a: 0}
-  modulationStrength:
-    overrideState: 0
-    value: 0
-  modulationFrequency:
-    overrideState: 0
-    value: 0.1
-  modulationWidth:
-    overrideState: 0
-    value: 0.1
-  modulationOffset:
-    overrideState: 0
-    value: 0
-  modulationScroll:
-    overrideState: 0
-    value: 1
 --- !u!114 &114279878222712972
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -171,36 +115,6 @@ MonoBehaviour:
   angle:
     overrideState: 0
     value: 0
---- !u!114 &114669864811554128
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68966c50a26529148a161de977c30b30, type: 3}
-  m_Name: Streak
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 0
-  threshold:
-    overrideState: 0
-    value: 1
-  stretch:
-    overrideState: 0
-    value: 0.75
-  intensity:
-    overrideState: 0
-    value: 0
-  tint:
-    overrideState: 0
-    value: {r: 0.55, g: 0.55, b: 1, a: 1}
-  blend:
-    overrideState: 0
-    value: 0
 --- !u!114 &114794485138486630
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -212,16 +126,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   intensity:
     overrideState: 1
-    value: 21.5
+    value: 3
   threshold:
     overrideState: 1
-    value: 1.8
+    value: 0.6
   softKnee:
     overrideState: 0
     value: 0.5
