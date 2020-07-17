@@ -1,0 +1,27 @@
+﻿# Black Hole demo by nesnausk! (2020)
+
+A real-time rendering demo. The soundtrack was made in early
+21st century, I got an idea to make a demo with it around year
+2006, but it took a lot more years until I actually did something
+with it.
+
+Sometime in 2018 I sat down with my kid and we started making
+something.
+
+![Screenshot](/Log/20180820a.JPG?raw=true "Screenshot")
+![Screenshot](/Log/20180822a.png?raw=true "Screenshot")
+
+And then that got parked, until I got off my lazy arse and actually
+finished it up, mid-2020. So here it is!
+
+### Credits
+
+- Soundtrack and story: paraphonic^aheadahead
+- Drawings and ideas: @laryngeal_stop
+- Putting it all together & fx: NeARAZ
+
+### Details
+
+It's a Unity 2018.2 project with nothing fancy really. A timeline,
+and mostly raymarched fractals that render into the g-buffer.
+
