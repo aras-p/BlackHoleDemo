@@ -25,6 +25,6 @@ finished it up, mid-2020. So here it is!
 It's a Unity 2018.2 project with nothing fancy really. A timeline,
 and mostly raymarched fractals that render into the g-buffer. Some utilities
 I've used from the most excellent [Keijiro's github](https://github.com/keijiro),
-and the fractals are based on "[Kali Sets](http://www.fractalforums.com/new-theories-and-research/very-simple-formula-for-fractal-patterns/)",
+and the fractals are based on "[Kali Sets](https://softologyblog.wordpress.com/2011/05/04/kalisets-and-hybrid-ducks/)",
 particularly "[kalizyl and kalizul](https://www.shadertoy.com/view/MtlGR2)" shadertoy by Stefan Berke.
 
