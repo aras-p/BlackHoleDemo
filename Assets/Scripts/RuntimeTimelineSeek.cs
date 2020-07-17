@@ -23,7 +23,7 @@ public class RuntimeTimelineSeek : MonoBehaviour
                 _director.time = _director.time - delta;
             if (Input.GetKeyDown(KeyCode.P))
                 _director.time = _director.time + delta;
-            if (Input.GetKeyDown(KeyCode.Escape) || _director.time >= 264)
+            if (Input.GetKeyDown(KeyCode.Escape) || _director.time >= 263)
             {
                 #if UNITY_EDITOR
                 EditorApplication.isPlaying = false;
