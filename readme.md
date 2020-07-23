@@ -5,6 +5,8 @@ A real-time rendering demo. The soundtrack was made in early
 2006, but it took a lot more years until I actually did something
 with it.
 
+![Screenshot](/Log/Screenshot.jpg?raw=true "Screenshot")
+
 Sometime in 2018 I sat down with my kid and we started making
 something.
 
