@@ -1,6 +1,8 @@
 ﻿# Black Hole demo by nesnausk! (2020)
 
-A real-time rendering demo. The soundtrack was made in early
+A real-time rendering demo. 1st place at [Field-FX 2020](https://field-fx.party/).
+
+The soundtrack was made in early
 21st century, I got an idea to make a demo with it around year
 2006, but it took a lot more years until I actually did something
 with it.
@@ -15,6 +17,8 @@ something.
 
 And then that got parked, until I got off my lazy arse and actually
 finished it up, mid-2020. So here it is!
+
+Video capture: [youtube](https://youtu.be/v6ELbTS6lkI)
 
 ### Credits
 
